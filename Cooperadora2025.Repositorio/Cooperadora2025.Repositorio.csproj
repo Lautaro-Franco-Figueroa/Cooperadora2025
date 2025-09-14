@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cooperadora2025.BD\Cooperadora2025.BD.csproj" />
+    <ProjectReference Include="..\Cooperadora2025.Shared\Cooperadora2025.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36212.18 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cooperadora2025.Server", "Cooperadora2025.Server\Cooperadora2025.Server\Cooperadora2025.Server.csproj", "{34F7F379-DD24-406F-993B-16A33446BD85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cooperadora2025.Server.Client", "Cooperadora2025.Server\Cooperadora2025.Server.Client\Cooperadora2025.Server.Client.csproj", "{3FACC8ED-FD4A-44A5-8B58-392A5F62FE7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cooperadora2025.Shared", "Cooperadora2025.Shared\Cooperadora2025.Shared.csproj", "{4AC33886-9797-43FD-B4B2-FF49623B6149}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cooperadora2025.BD", "Cooperadora2025.BD\Cooperadora2025.BD.csproj", "{FAD560C5-0116-4F08-AFB4-A53FB6E6D781}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cooperadora2025.Repositorio", "Cooperadora2025.Repositorio\Cooperadora2025.Repositorio.csproj", "{841E4339-B20D-4FC0-A90C-531E0AD00D84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cooperadora2025.Servicio", "Cooperadora2025.Servicio\Cooperadora2025.Servicio.csproj", "{5AA78D45-E8AB-428C-81F3-2AD2BF5CB04D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34F7F379-DD24-406F-993B-16A33446BD85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34F7F379-DD24-406F-993B-16A33446BD85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34F7F379-DD24-406F-993B-16A33446BD85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34F7F379-DD24-406F-993B-16A33446BD85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FACC8ED-FD4A-44A5-8B58-392A5F62FE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FACC8ED-FD4A-44A5-8B58-392A5F62FE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FACC8ED-FD4A-44A5-8B58-392A5F62FE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FACC8ED-FD4A-44A5-8B58-392A5F62FE7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC33886-9797-43FD-B4B2-FF49623B6149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC33886-9797-43FD-B4B2-FF49623B6149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC33886-9797-43FD-B4B2-FF49623B6149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC33886-9797-43FD-B4B2-FF49623B6149}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD560C5-0116-4F08-AFB4-A53FB6E6D781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD560C5-0116-4F08-AFB4-A53FB6E6D781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD560C5-0116-4F08-AFB4-A53FB6E6D781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD560C5-0116-4F08-AFB4-A53FB6E6D781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{841E4339-B20D-4FC0-A90C-531E0AD00D84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{841E4339-B20D-4FC0-A90C-531E0AD00D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{841E4339-B20D-4FC0-A90C-531E0AD00D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{841E4339-B20D-4FC0-A90C-531E0AD00D84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AA78D45-E8AB-428C-81F3-2AD2BF5CB04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AA78D45-E8AB-428C-81F3-2AD2BF5CB04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AA78D45-E8AB-428C-81F3-2AD2BF5CB04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AA78D45-E8AB-428C-81F3-2AD2BF5CB04D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A730C1EC-C6A8-44B7-970C-8CA731317604}
+	EndGlobalSection
+EndGlobal

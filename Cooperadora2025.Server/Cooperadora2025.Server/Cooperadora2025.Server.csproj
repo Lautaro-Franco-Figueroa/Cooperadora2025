@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Cooperadora2025.BD\Cooperadora2025.BD.csproj" />
+    <ProjectReference Include="..\..\Cooperadora2025.Repositorio\Cooperadora2025.Repositorio.csproj" />
+    <ProjectReference Include="..\..\Cooperadora2025.Shared\Cooperadora2025.Shared.csproj" />
+    <ProjectReference Include="..\Cooperadora2025.Server.Client\Cooperadora2025.Server.Client.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.6" />
+  </ItemGroup>
+
+</Project>
