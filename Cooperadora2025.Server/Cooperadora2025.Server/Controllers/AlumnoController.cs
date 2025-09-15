@@ -3,6 +3,7 @@ using Cooperadora2025.BD.Datos.Entidades;
 using Cooperadora2025.Repositorio.Repositorios;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Cooperadora2025.Shared.DTO;
 
 namespace Cooperadora2025.Server.Controllers
 {
@@ -25,7 +26,24 @@ namespace Cooperadora2025.Server.Controllers
         {
             
             var alumnos = await repositorio.Select();
-            //var alumnos = await context.Alumnos.ToListAsync();
+
+            if (alumnos == null)
+            {
+                return NotFound("No se encontraron Alumnos.");
+            }
+            if (alumnos.Count == 0)
+            {
+                return Ok("No hay Alumnos cargados.");
+            }
+
+            return Ok(alumnos);
+        }
+
+        [HttpGet("datosalumnos")]
+        public async Task<ActionResult<List<AlumnoDatosDTO>>> DatosAlumnos()
+        {
+
+            var alumnos = await repositorio.SelectDatosAlumnos();
 
             if (alumnos == null)
             {
@@ -42,7 +60,8 @@ namespace Cooperadora2025.Server.Controllers
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Alumno>> GetPorId(int id)
         {
-            var entidad = await context.Alumnos.FirstOrDefaultAsync(x => x.Id == id);
+            var entidad = await repositorio.SelectPorId(id);
+            //var entidad = await context.Alumnos.FirstOrDefaultAsync(x => x.Id == id);
             if (entidad is null)
             {
                 return NotFound($"No se encontro el Alumno con el id: {id}.");
@@ -56,7 +75,8 @@ namespace Cooperadora2025.Server.Controllers
         {
             try
             {
-                await context.Alumnos.AddAsync(DTO);
+                await repositorio.Insert(DTO);
+                //await context.Alumnos.AddAsync(DTO);
                 await context.SaveChangesAsync();
                 return Ok(DTO.Id);
             }
@@ -83,17 +103,23 @@ namespace Cooperadora2025.Server.Controllers
         [HttpPut("{id:int}")]
         public async Task<ActionResult> Put(int id, Alumno DTO)
         {
-            if (id != DTO.Id)
+            //if (id != DTO.Id)
+            //{
+            //    return BadRequest("El id del Alumno no coincide con el id de la URL.");
+            //}
+            //var existe = await repositorio.Existe(id);
+            //var existe = await context.Alumnos.AnyAsync(x => x.Id == id);
+            //if (existe == false)
+            //{
+            //    return NotFound($"No se encontro el Alumno con el id: {id}.");
+            //}
+            //context.Alumnos.Update(DTO);
+            //await context.SaveChangesAsync();
+            var resultado = await repositorio.Update(id, DTO);
+            if (resultado == false)
             {
-                return BadRequest("El id del Alumno no coincide con el id de la URL.");
+                return BadRequest("No se pudo modificar el Alumno.");
             }
-            var existe = await context.Alumnos.AnyAsync(x => x.Id == id);
-            if (existe == false)
-            {
-                return NotFound($"No se encontro el Alumno con el id: {id}.");
-            }
-            context.Alumnos.Update(DTO);
-            await context.SaveChangesAsync();
             return Ok($"El Alumno con el id: {id} fue modificado.");
         }
     }
