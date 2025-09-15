@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cooperadora2025.BD.Datos
 {
-    public class EntidadBase
+    public class EntidadBase : IEntidadBase
     {
         public int Id { get; set; }
         public EnumEstadoRegistro EstadoRegistro { get; set; } = EnumEstadoRegistro.Activo;

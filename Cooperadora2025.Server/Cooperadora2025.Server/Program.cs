@@ -2,6 +2,8 @@ using Cooperadora2025.Server.Client.Pages;
 using Cooperadora2025.Server.Components;
 using Cooperadora2025.BD.Datos;
 using Microsoft.EntityFrameworkCore;
+using Cooperadora2025.Repositorio.Repositorios;
+using Cooperadora2025.BD.Datos.Entidades;
 
 // Configura el contructor de la aplicacion
 var builder = WebApplication.CreateBuilder(args);
@@ -13,12 +15,12 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("ConnSqlServer")
               ?? throw new InvalidOperationException("El string de conexion no existe.");
-
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
+builder.Services.AddScoped<IRepositorio<Alumno>, Repositorio<Alumno>>();
 
-// Add services to the container.
+// Add services to the container.D
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();

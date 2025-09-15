@@ -1,5 +1,6 @@
 ﻿using Cooperadora2025.BD.Datos;
 using Cooperadora2025.BD.Datos.Entidades;
+using Cooperadora2025.Repositorio.Repositorios;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,16 +11,21 @@ namespace Cooperadora2025.Server.Controllers
     public class AlumnoController : ControllerBase
     {
         private readonly AppDbContext context;
+        private readonly IRepositorio<Alumno> repositorio;
 
-        public AlumnoController(AppDbContext context)
+        public AlumnoController(AppDbContext context,
+                                IRepositorio<Alumno> repositorio)
         {
             this.context = context;
+            this.repositorio = repositorio;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Alumno>>> GetAlumnos()
         {
-            var alumnos = await context.Alumnos.ToListAsync();
+            
+            var alumnos = await repositorio.Select();
+            //var alumnos = await context.Alumnos.ToListAsync();
 
             if (alumnos == null)
             {
@@ -34,15 +40,15 @@ namespace Cooperadora2025.Server.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Alumno>> GetAlumnosPorId(int id)
+        public async Task<ActionResult<Alumno>> GetPorId(int id)
         {
-            var alumno = await context.Alumnos.FirstOrDefaultAsync(x => x.Id == id);
-            if (alumno is null)
+            var entidad = await context.Alumnos.FirstOrDefaultAsync(x => x.Id == id);
+            if (entidad is null)
             {
                 return NotFound($"No se encontro el Alumno con el id: {id}.");
             }
 
-            return Ok(alumno);
+            return Ok(entidad);
         }
 
         [HttpPost]
