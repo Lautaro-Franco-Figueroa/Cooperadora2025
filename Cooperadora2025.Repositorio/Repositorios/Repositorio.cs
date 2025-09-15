@@ -75,9 +75,6 @@ namespace Cooperadora2025.Repositorio.Repositorios
                 {
                     DNI = a.DNI,
                     Nombre = a.Nombre,
-                    Curso = a.Curso,
-                    Seccion = a.Seccion,
-                    Turno = a.Turno
                 })
                 .ToListAsync();
             return alumnos;

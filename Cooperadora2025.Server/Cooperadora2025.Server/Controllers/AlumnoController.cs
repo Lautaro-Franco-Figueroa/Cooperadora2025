@@ -61,7 +61,6 @@ namespace Cooperadora2025.Server.Controllers
         public async Task<ActionResult<Alumno>> GetPorId(int id)
         {
             var entidad = await repositorio.SelectPorId(id);
-            //var entidad = await context.Alumnos.FirstOrDefaultAsync(x => x.Id == id);
             if (entidad is null)
             {
                 return NotFound($"No se encontro el Alumno con el id: {id}.");
@@ -71,14 +70,21 @@ namespace Cooperadora2025.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Post(Alumno DTO)
+        public async Task<ActionResult<int>> Post(AlumnoDTO DTO)
         {
             try
             {
-                await repositorio.Insert(DTO);
-                //await context.Alumnos.AddAsync(DTO);
+                Alumno entidad = new()
+                {
+                    DNI = DTO.DNI,
+                    Nombre = DTO.Nombre,
+                    Curso = DTO.Curso,
+                    Seccion = DTO.Seccion,
+                    Turno = DTO.Turno
+                };
+                await repositorio.Insert(entidad);
                 await context.SaveChangesAsync();
-                return Ok(DTO.Id);
+                return Ok(entidad.Id);
             }
             catch (Exception ex)
             {
@@ -103,18 +109,6 @@ namespace Cooperadora2025.Server.Controllers
         [HttpPut("{id:int}")]
         public async Task<ActionResult> Put(int id, Alumno DTO)
         {
-            //if (id != DTO.Id)
-            //{
-            //    return BadRequest("El id del Alumno no coincide con el id de la URL.");
-            //}
-            //var existe = await repositorio.Existe(id);
-            //var existe = await context.Alumnos.AnyAsync(x => x.Id == id);
-            //if (existe == false)
-            //{
-            //    return NotFound($"No se encontro el Alumno con el id: {id}.");
-            //}
-            //context.Alumnos.Update(DTO);
-            //await context.SaveChangesAsync();
             var resultado = await repositorio.Update(id, DTO);
             if (resultado == false)
             {
