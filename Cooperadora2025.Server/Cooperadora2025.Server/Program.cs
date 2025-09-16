@@ -19,6 +19,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IRepositorio<Alumno>, Repositorio<Alumno>>();
+builder.Services.AddScoped<IRepositorio<Cuotas>, Repositorio<Cuotas>>();
+builder.Services.AddScoped<ICuotasRepositorio, CuotasRepositorio>();
+builder.Services.AddScoped<IAlumnoRepositorio, AlumnoRepositorio>();
 
 // Add services to the container.D
 builder.Services.AddRazorComponents()

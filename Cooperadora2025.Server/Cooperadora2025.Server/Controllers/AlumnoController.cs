@@ -13,12 +13,15 @@ namespace Cooperadora2025.Server.Controllers
     {
         private readonly AppDbContext context;
         private readonly IRepositorio<Alumno> repositorio;
+        private readonly IAlumnoRepositorio alumnoRepositorio;
 
         public AlumnoController(AppDbContext context,
-                                IRepositorio<Alumno> repositorio)
+                                IRepositorio<Alumno> repositorio,
+                                IAlumnoRepositorio alumnoRepositorio)
         {
             this.context = context;
             this.repositorio = repositorio;
+            this.alumnoRepositorio = alumnoRepositorio;
         }
 
         [HttpGet]
@@ -38,8 +41,8 @@ namespace Cooperadora2025.Server.Controllers
 
             return Ok(alumnos);
         }
-
-        [HttpGet("datosalumnos")]
+        /*
+         * [HttpGet("datosalumnos")]
         public async Task<ActionResult<List<AlumnoDatosDTO>>> DatosAlumnos()
         {
 
@@ -56,14 +59,28 @@ namespace Cooperadora2025.Server.Controllers
 
             return Ok(alumnos);
         }
+        */
+        
+        
+        //[HttpGet("{id:int}")]
+        //public async Task<ActionResult<Alumno>> GetPorId(int id)
+        //{
+        //    var entidad = await repositorio.SelectPorId(id);
+        //    if (entidad is null) 
+        //    {
+        //        return NotFound($"No se encontro el Alumno con el id: {id}.");
+        //}
+        //
+        //  return Ok(entidad);
+        //}
 
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult<Alumno>> GetPorId(int id)
+        [HttpGet("{dni:int}")]
+        public async Task<ActionResult<Alumno>> GetPorDNI(int dni)
         {
-            var entidad = await repositorio.SelectPorId(id);
+            var entidad = await alumnoRepositorio.SelectPorDNI(dni);
             if (entidad is null)
             {
-                return NotFound($"No se encontro el Alumno con el id: {id}.");
+                return NotFound($"No se encontro el Alumno con el dni: {dni}.");
             }
 
             return Ok(entidad);
